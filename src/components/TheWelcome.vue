@@ -7,9 +7,28 @@ import CommunityIcon from './icons/IconCommunity.vue'
 import SupportIcon from './icons/IconSupport.vue'
 
 const openReadmeInEditor = () => fetch('/__open-in-editor?file=README.md')
+const handleButtonClick = () => {
+  console.info('User clicked the example button on home route')
+}
+const handleErrorButtonClick = () => {
+  console.error('User clicked the error button on home route')
+}
 </script>
 
 <template>
+  <WelcomeItem>
+    <div style="display: flex; flex-direction: column;">
+      <button @click="handleButtonClick" style="margin: 20px; padding: 10px 20px; font-size: 16px;
+        border-color: green;">
+        Click me to test logging
+      </button>
+      <button @click="handleErrorButtonClick" style="margin: 20px; padding: 10px 20px; font-size:
+        16px; border-color: red;">
+        Click me to test error logging
+      </button>
+    </div>
+  </WelcomeItem>
+
   <WelcomeItem>
     <template #icon>
       <DocumentationIcon />
